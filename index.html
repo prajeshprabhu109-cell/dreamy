@@ -9,15 +9,9 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#07080f;
-  --panel:#0e0f1a;
-  --border:#1e2035;
-  --border2:#2a2d4a;
-  --accent:#ff3cac;
-  --accent2:#7b2fff;
-  --accent3:#00f5d4;
-  --text:#eeeeff;
-  --muted:#5a5c80;
+  --bg:#07080f;--panel:#0e0f1a;--border:#1e2035;--border2:#2a2d4a;
+  --accent:#ff3cac;--accent2:#7b2fff;--accent3:#00f5d4;
+  --text:#eeeeff;--muted:#5a5c80;
 }
 html,body{min-height:100%}
 body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;overflow-x:hidden}
@@ -26,70 +20,62 @@ body::before{width:500px;height:500px;background:radial-gradient(circle,rgba(123
 body::after{width:400px;height:400px;background:radial-gradient(circle,rgba(255,60,172,.15) 0%,transparent 70%);bottom:0;right:-80px}
 .wrap{position:relative;z-index:1;max-width:1160px;margin:0 auto;padding:0 20px 80px}
 
-/* Header */
-header{display:flex;align-items:center;justify-content:space-between;padding:28px 0 32px;border-bottom:1px solid var(--border);margin-bottom:28px}
+header{display:flex;align-items:center;justify-content:space-between;padding:28px 0 32px;border-bottom:1px solid var(--border);margin-bottom:24px}
 .logo{font-family:'Bebas Neue',sans-serif;font-size:34px;letter-spacing:3px;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.pills{display:flex;gap:8px;align-items:center}
-.pill{padding:5px 12px;border-radius:999px;font-size:10px;letter-spacing:1.5px;font-weight:700;text-transform:uppercase}
+.pills{display:flex;gap:8px}
+.pill{padding:5px 13px;border-radius:999px;font-size:10px;letter-spacing:1.5px;font-weight:700;text-transform:uppercase}
 .pill-free{background:linear-gradient(135deg,var(--accent3),#00b4d8);color:#000}
 .pill-info{background:rgba(30,32,53,.8);border:1px solid var(--border2);color:var(--muted)}
 
-/* Info bar */
-.info-bar{background:linear-gradient(135deg,rgba(0,245,212,.06),rgba(123,47,255,.06));border:1px solid rgba(0,245,212,.15);border-radius:10px;padding:11px 16px;font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:22px}
+.info-bar{background:linear-gradient(135deg,rgba(0,245,212,.05),rgba(123,47,255,.05));border:1px solid rgba(0,245,212,.15);border-radius:10px;padding:11px 16px;font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:20px}
 .info-bar strong{color:var(--accent3)}
 .info-bar a{color:var(--accent3);text-decoration:none}
 .info-bar a:hover{text-decoration:underline}
 
-/* Grid */
 .grid{display:grid;grid-template-columns:400px 1fr;gap:18px;align-items:start}
 @media(max-width:860px){.grid{grid-template-columns:1fr}}
 
-/* Card */
 .card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:22px;position:relative;overflow:hidden;margin-bottom:16px}
 .card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(123,47,255,.06),transparent 60%);pointer-events:none;border-radius:14px}
 .card-label{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:8px}
 .card-label::after{content:'';flex:1;height:1px;background:linear-gradient(to right,var(--border2),transparent)}
 
 /* Drop zone */
-#drop-zone{border:2px dashed var(--border2);border-radius:10px;min-height:200px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .25s;position:relative;overflow:hidden;background:rgba(7,8,15,.7)}
-#drop-zone:hover,#drop-zone.over{border-color:var(--accent);background:rgba(255,60,172,.06);box-shadow:inset 0 0 24px rgba(255,60,172,.07)}
-#drop-zone .prev-img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:8px;border-radius:8px}
+#drop-zone{border:2px dashed var(--border2);border-radius:10px;min-height:190px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .25s;position:relative;overflow:hidden;background:rgba(7,8,15,.7)}
+#drop-zone:hover,#drop-zone.over{border-color:var(--accent);background:rgba(255,60,172,.06)}
+#drop-zone .prev-img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:8px}
 .dz-inner{display:flex;flex-direction:column;align-items:center;gap:10px;pointer-events:none}
-.dz-ico{width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,rgba(255,60,172,.18),rgba(123,47,255,.18));border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:22px;transition:transform .25s}
+.dz-ico{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,rgba(255,60,172,.18),rgba(123,47,255,.18));border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:22px;transition:transform .25s}
 #drop-zone:hover .dz-ico{transform:scale(1.1)}
-.dz-txt strong{display:block;font-size:13px;font-weight:600;color:var(--text);margin-bottom:3px;text-align:center}
-.dz-txt span{font-size:11px;color:var(--muted);text-align:center;display:block}
+.dz-txt{text-align:center}
+.dz-txt strong{display:block;font-size:13px;font-weight:600;color:var(--text);margin-bottom:3px}
+.dz-txt span{font-size:11px;color:var(--muted)}
 .clr-btn{position:absolute;top:9px;right:9px;width:28px;height:28px;border-radius:50%;background:rgba(0,0,0,.75);border:1px solid var(--border2);color:var(--text);font-size:13px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:5;transition:background .2s}
 .clr-btn:hover{background:var(--accent);border-color:var(--accent)}
 #file-input{display:none}
 
-/* Fields */
-.field{margin-bottom:15px}
+.field{margin-bottom:14px}
 .field-label{display:block;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
-textarea,select,input[type=text],input[type=number]{width:100%;background:rgba(7,8,15,.8);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Outfit',sans-serif;font-size:13px;padding:10px 12px;outline:none;transition:border-color .2s,box-shadow .2s}
-textarea:focus,select:focus,input[type=text]:focus,input[type=number]:focus{border-color:var(--accent2);box-shadow:0 0 0 3px rgba(123,47,255,.12)}
-textarea{resize:vertical;min-height:88px;line-height:1.6}
+textarea,select,input[type=text]{width:100%;background:rgba(7,8,15,.8);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'Outfit',sans-serif;font-size:13px;padding:10px 12px;outline:none;transition:border-color .2s,box-shadow .2s}
+textarea:focus,select:focus,input[type=text]:focus{border-color:var(--accent2);box-shadow:0 0 0 3px rgba(123,47,255,.12)}
+textarea{resize:vertical;min-height:85px;line-height:1.6}
 select{cursor:pointer}
 select option{background:#0e0f1a}
 
-/* Chips */
 .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
 .chip{padding:4px 10px;border-radius:999px;font-size:11px;font-weight:500;border:1px solid var(--border2);color:var(--muted);cursor:pointer;transition:all .15s;user-select:none}
 .chip:hover{border-color:var(--accent);color:var(--accent);background:rgba(255,60,172,.07)}
 
-/* Toggle */
 .tog-row{display:flex;gap:8px;margin-bottom:14px}
 .tog-btn{flex:1;padding:9px;border-radius:8px;border:1px solid var(--border2);background:transparent;color:var(--muted);font-family:'Outfit',sans-serif;font-size:12px;font-weight:600;cursor:pointer;transition:all .2s}
 .tog-btn:hover{border-color:var(--accent2);color:var(--text)}
 .tog-btn.on{background:linear-gradient(135deg,rgba(255,60,172,.18),rgba(123,47,255,.18));border-color:var(--accent2);color:var(--text)}
 
-/* Sizes */
 .size-row{display:flex;gap:6px;flex-wrap:wrap}
-.sz-btn{flex:1;padding:7px 4px;border-radius:7px;border:1px solid var(--border2);background:transparent;color:var(--muted);font-family:'Outfit',sans-serif;font-size:11px;font-weight:600;cursor:pointer;transition:all .2s;min-width:70px;text-align:center}
+.sz-btn{flex:1;padding:7px 4px;border-radius:7px;border:1px solid var(--border2);background:transparent;color:var(--muted);font-family:'Outfit',sans-serif;font-size:11px;font-weight:600;cursor:pointer;transition:all .2s;min-width:68px;text-align:center}
 .sz-btn:hover{border-color:var(--accent3);color:var(--accent3)}
 .sz-btn.on{background:rgba(0,245,212,.1);border-color:var(--accent3);color:var(--accent3)}
 
-/* Slider */
 .sl-row{display:grid;grid-template-columns:90px 1fr 46px;align-items:center;gap:10px;margin-bottom:10px}
 .sl-row label{font-size:11px;font-weight:500;color:var(--muted)}
 input[type=range]{-webkit-appearance:none;appearance:none;height:4px;background:var(--border2);border-radius:4px;outline:none;cursor:pointer;width:100%}
@@ -97,53 +83,49 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:15px;heigh
 input[type=range]::-moz-range-thumb{width:15px;height:15px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));cursor:pointer;border:none}
 .sl-val{font-size:12px;font-weight:700;color:var(--accent3);text-align:right}
 
-/* Gen button */
-#gen-btn{width:100%;padding:17px;border-radius:10px;border:none;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:3px;cursor:pointer;transition:all .25s;position:relative;overflow:hidden;box-shadow:0 4px 28px rgba(255,60,172,.28)}
+#gen-btn{width:100%;padding:17px;border-radius:10px;border:none;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:3px;cursor:pointer;transition:all .25s;box-shadow:0 4px 28px rgba(255,60,172,.28)}
 #gen-btn:hover{transform:translateY(-2px);box-shadow:0 8px 36px rgba(255,60,172,.38)}
 #gen-btn:active{transform:translateY(0)}
 #gen-btn:disabled{background:linear-gradient(135deg,#252535,#1a1a2a);color:var(--muted);cursor:not-allowed;transform:none;box-shadow:none}
-.btn-inner{display:flex;align-items:center;justify-content:center;gap:8px;position:relative}
+.btn-inner{display:flex;align-items:center;justify-content:center;gap:8px}
 
-/* Output */
+/* Output card */
 .out-card{background:var(--panel);border:1px solid var(--border);border-radius:14px;overflow:hidden;position:relative}
-.out-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,transparent,rgba(255,60,172,.05) 100%);pointer-events:none}
-.out-top{padding:18px 22px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.out-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,transparent,rgba(255,60,172,.04) 100%);pointer-events:none}
+.out-top{padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
 .out-title{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent)}
-.out-acts{display:flex;gap:7px;flex-wrap:wrap}
+.out-acts{display:flex;gap:6px;flex-wrap:wrap}
 .act-btn{padding:6px 13px;border-radius:7px;border:1px solid var(--border2);background:transparent;color:var(--muted);font-family:'Outfit',sans-serif;font-size:11px;font-weight:600;cursor:pointer;transition:all .2s;display:none}
 .act-btn:hover{border-color:var(--accent3);color:var(--accent3)}
-.act-btn.show{display:inline-flex;align-items:center;gap:5px}
+.act-btn.show{display:inline-flex;align-items:center;gap:4px}
 .out-body{min-height:420px;display:flex;align-items:center;justify-content:center;padding:22px;position:relative}
 
-/* Idle */
 .idle-st{text-align:center;color:var(--muted)}
-.idle-ico{width:90px;height:90px;border-radius:50%;margin:0 auto 18px;background:linear-gradient(135deg,rgba(123,47,255,.1),rgba(255,60,172,.1));border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:36px}
-.idle-st p{font-size:13px;color:var(--muted);line-height:1.9}
+.idle-ico{width:88px;height:88px;border-radius:50%;margin:0 auto 18px;background:linear-gradient(135deg,rgba(123,47,255,.1),rgba(255,60,172,.1));border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:34px}
+.idle-st p{font-size:13px;line-height:1.9}
 
-/* Loading */
-.load-st{display:none;flex-direction:column;align-items:center;gap:18px;width:100%}
+.load-st{display:none;flex-direction:column;align-items:center;gap:16px;width:100%}
 .load-st.show{display:flex}
-.ring{width:56px;height:56px;border-radius:50%;border:3px solid var(--border2);border-top-color:var(--accent);border-right-color:var(--accent2);animation:spin 1s linear infinite}
+.ring{width:54px;height:54px;border-radius:50%;border:3px solid var(--border2);border-top-color:var(--accent);border-right-color:var(--accent2);animation:spin 1s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
-.load-msg{font-size:13px;color:var(--muted);letter-spacing:.5px;text-align:center;animation:pulse 2s ease-in-out infinite}
+.load-msg{font-size:13px;color:var(--muted);letter-spacing:.3px;text-align:center;animation:pulse 2s ease-in-out infinite}
 @keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}
 .prog-track{width:240px;height:3px;background:var(--border2);border-radius:3px;overflow:hidden}
-.prog-fill{height:100%;width:0%;background:linear-gradient(to right,var(--accent),var(--accent2),var(--accent3));border-radius:3px;transition:width .5s ease}
-.queue-info{font-size:11px;color:var(--muted);text-align:center;letter-spacing:.3px}
+.prog-fill{height:100%;width:0%;background:linear-gradient(to right,var(--accent),var(--accent2),var(--accent3));border-radius:3px;transition:width .6s ease}
+.queue-info{font-size:11px;color:var(--muted);text-align:center}
 
-/* Result */
+/* Result — uses direct URL, no base64 needed */
 #result-img{max-width:100%;max-height:680px;border-radius:10px;display:none;animation:fadeUp .5s ease;cursor:zoom-in;box-shadow:0 8px 48px rgba(0,0,0,.6)}
 @keyframes fadeUp{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
 
-/* Error */
-.err-box{display:none;background:rgba(255,50,50,.08);border:1px solid rgba(255,80,80,.25);border-radius:9px;padding:13px 16px;color:#ff8080;font-size:12px;line-height:1.7;margin:0 22px 16px}
+.err-box{display:none;background:rgba(255,50,50,.08);border:1px solid rgba(255,80,80,.25);border-radius:9px;padding:13px 16px;color:#ff8080;font-size:12px;line-height:1.7;margin:0 20px 14px}
 .err-box.show{display:block}
 
 /* Gallery */
-.gal-wrap{margin-top:18px;display:none}
+.gal-wrap{margin-top:16px;display:none}
 .gal-hdr{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:12px;display:flex;align-items:center;gap:10px}
 .gal-hdr::after{content:'';flex:1;height:1px;background:linear-gradient(to right,var(--border2),transparent)}
-.gal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px}
+.gal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px}
 .g-item{aspect-ratio:1;border-radius:9px;overflow:hidden;border:1px solid var(--border);cursor:pointer;position:relative;transition:all .2s}
 .g-item:hover{border-color:var(--accent);transform:scale(1.03)}
 .g-item img{width:100%;height:100%;object-fit:cover;display:block}
@@ -151,10 +133,10 @@ input[type=range]::-moz-range-thumb{width:15px;height:15px;border-radius:50%;bac
 .g-item:hover .g-ov{opacity:1}
 .g-btn{padding:4px 10px;border-radius:5px;font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;cursor:pointer;border:none;transition:all .15s}
 .g-btn.v{background:rgba(255,255,255,.15);color:#fff}
-.g-btn.u{background:var(--accent3);color:#000}
+.g-btn.dl{background:var(--accent3);color:#000}
 
 /* Fullscreen */
-#fs-ov{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.94);backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center}
+#fs-ov{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.93);backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center}
 #fs-ov.show{display:flex}
 #fs-img{max-width:92vw;max-height:92vh;border-radius:10px;object-fit:contain;animation:fadeUp .3s ease}
 #fs-close{position:absolute;top:22px;right:26px;font-size:26px;color:var(--muted);cursor:pointer;transition:color .2s;background:none;border:none;line-height:1}
@@ -182,22 +164,18 @@ input[type=range]::-moz-range-thumb{width:15px;height:15px;border-radius:50%;bac
   </header>
 
   <div class="info-bar">
-    <strong>Powered by Stable Horde</strong> — a free, community-run AI image generation network.
-    Anonymous use is supported. For faster generation, get a free API key at
-    <a href="https://stablehorde.net" target="_blank">stablehorde.net</a> and enter it below (optional).
+    <strong>Powered by Stable Horde (AI Horde)</strong> — a free community-run GPU network. Works anonymously with no signup.
+    For faster queue priority, get a free key at <a href="https://stablehorde.net/register" target="_blank">stablehorde.net/register</a> and paste it below.
   </div>
 
   <div class="grid">
-    <!-- Left -->
+    <!-- LEFT -->
     <div>
-      <!-- Upload -->
       <div class="card">
-        <div class="card-label">Source Image (optional)</div>
+        <div class="card-label">Source Image (img2img)</div>
         <div id="drop-zone"
           onclick="document.getElementById('file-input').click()"
-          ondragover="onDragOver(event)"
-          ondragleave="onDragLeave(event)"
-          ondrop="onDrop(event)">
+          ondragover="onDragOver(event)" ondragleave="onDragLeave(event)" ondrop="onDrop(event)">
           <div class="dz-inner" id="dz-inner">
             <div class="dz-ico">🖼</div>
             <div class="dz-txt">
@@ -210,20 +188,17 @@ input[type=range]::-moz-range-thumb{width:15px;height:15px;border-radius:50%;bac
         <input type="file" id="file-input" accept="image/*" onchange="onFile(event)"/>
       </div>
 
-      <!-- Controls -->
       <div class="card">
-        <div class="card-label">Settings</div>
+        <div class="card-label">Generation Settings</div>
 
-        <!-- Mode -->
         <div class="tog-row">
-          <button class="tog-btn on" data-m="img2img" onclick="setMode(this)">🖼 Img + Prompt</button>
+          <button class="tog-btn on" data-m="img2img" onclick="setMode(this)">🖼 Image + Prompt</button>
           <button class="tog-btn" data-m="txt2img" onclick="setMode(this)">✏️ Text Only</button>
         </div>
 
-        <!-- Prompt -->
         <div class="field">
           <label class="field-label">Prompt</label>
-          <textarea id="prompt" placeholder="A glowing cyberpunk dragon soaring over a neon city, ultra detailed, 8k cinematic..."></textarea>
+          <textarea id="prompt" placeholder="A glowing cyberpunk dragon over a neon city, ultra detailed, 8k, cinematic lighting..."></textarea>
           <div class="chips">
             <span class="chip" onclick="chip('ultra detailed, 8k')">ultra detailed</span>
             <span class="chip" onclick="chip('cinematic lighting')">cinematic</span>
@@ -233,45 +208,41 @@ input[type=range]::-moz-range-thumb{width:15px;height:15px;border-radius:50%;bac
             <span class="chip" onclick="chip('dark fantasy art')">dark fantasy</span>
             <span class="chip" onclick="chip('watercolor')">watercolor</span>
             <span class="chip" onclick="chip('neon glow')">neon</span>
-            <span class="chip" onclick="chip('surrealist')">surreal</span>
+            <span class="chip" onclick="chip('surrealist dreamscape')">surreal</span>
             <span class="chip" onclick="chip('concept art')">concept art</span>
           </div>
         </div>
 
-        <!-- Negative -->
         <div class="field">
           <label class="field-label">Negative Prompt <span style="font-weight:300;text-transform:none;letter-spacing:0">(what to avoid)</span></label>
-          <textarea id="neg" style="min-height:60px" placeholder="blurry, low quality, distorted, watermark, text, ugly..."></textarea>
+          <textarea id="neg" style="min-height:58px" placeholder="blurry, low quality, distorted, watermark, ugly..."></textarea>
         </div>
 
-        <!-- Model -->
         <div class="field">
           <label class="field-label">Model</label>
           <select id="model">
-            <option value="AUTOMATIC1111/stable-diffusion-webui">Stable Diffusion (Default)</option>
-            <option value="Deliberate">Deliberate v3</option>
-            <option value="Realistic Vision">Realistic Vision</option>
-            <option value="DreamShaper">DreamShaper</option>
-            <option value="Anything Diffusion">Anything (Anime)</option>
-            <option value="Counterfeit">Counterfeit (Anime)</option>
-            <option value="OpenJourney">OpenJourney</option>
-            <option value="SDXL 1.0">SDXL 1.0 (Best Quality)</option>
+            <option value="Deliberate">Deliberate v3 (Recommended)</option>
+            <option value="Realistic Vision">Realistic Vision v5</option>
+            <option value="DreamShaper">DreamShaper v8</option>
+            <option value="SDXL 1.0">SDXL 1.0 (Best Quality, Slower)</option>
+            <option value="Anything Diffusion">Anything v5 (Anime)</option>
+            <option value="Counterfeit">Counterfeit v3 (Anime)</option>
+            <option value="OpenJourney">OpenJourney v4</option>
+            <option value="stable_diffusion">Stable Diffusion 1.5</option>
           </select>
         </div>
 
-        <!-- Size -->
         <div class="field">
-          <label class="field-label">Size</label>
+          <label class="field-label">Output Size</label>
           <div class="size-row">
             <button class="sz-btn" data-w="512" data-h="512" onclick="setSize(this)">512²</button>
             <button class="sz-btn on" data-w="768" data-h="768" onclick="setSize(this)">768²</button>
             <button class="sz-btn" data-w="1024" data-h="1024" onclick="setSize(this)">1024²</button>
-            <button class="sz-btn" data-w="1280" data-h="720" onclick="setSize(this)">16:9</button>
-            <button class="sz-btn" data-w="720" data-h="1280" onclick="setSize(this)">9:16</button>
+            <button class="sz-btn" data-w="1024" data-h="576" onclick="setSize(this)">16:9</button>
+            <button class="sz-btn" data-w="576" data-h="1024" onclick="setSize(this)">9:16</button>
           </div>
         </div>
 
-        <!-- Sliders -->
         <div class="field">
           <label class="field-label">Parameters</label>
           <div class="sl-row">
@@ -281,20 +252,19 @@ input[type=range]::-moz-range-thumb{width:15px;height:15px;border-radius:50%;bac
           </div>
           <div class="sl-row">
             <label>CFG Scale</label>
-            <input type="range" id="cfg" min="1" max="20" step="0.5" value="7" oninput="sv('cfg-v',this.value)"/>
+            <input type="range" id="cfg" min="1" max="20" step=".5" value="7" oninput="sv('cfg-v',this.value)"/>
             <span class="sl-val" id="cfg-v">7</span>
           </div>
-          <div id="str-row" class="sl-row">
+          <div class="sl-row" id="str-row">
             <label>Strength</label>
-            <input type="range" id="strength" min="0.1" max="1.0" step="0.05" value="0.75" oninput="sv('str-v',this.value)"/>
+            <input type="range" id="strength" min="0.1" max="1.0" step=".05" value="0.75" oninput="sv('str-v',this.value)"/>
             <span class="sl-val" id="str-v">0.75</span>
           </div>
         </div>
 
-        <!-- Optional key -->
         <div class="field">
           <label class="field-label">API Key <span style="font-weight:300;text-transform:none;letter-spacing:0">(optional — faster queue)</span></label>
-          <input type="text" id="apikey" placeholder="0000000000 (leave blank for free anonymous use)" oninput="saveKey()"/>
+          <input type="text" id="apikey" placeholder="Leave blank for free anonymous use" oninput="saveKey()"/>
         </div>
 
         <button id="gen-btn" onclick="generate()">
@@ -306,7 +276,7 @@ input[type=range]::-moz-range-thumb{width:15px;height:15px;border-radius:50%;bac
       </div>
     </div>
 
-    <!-- Right -->
+    <!-- RIGHT -->
     <div>
       <div class="out-card">
         <div class="out-top">
@@ -318,18 +288,18 @@ input[type=range]::-moz-range-thumb{width:15px;height:15px;border-radius:50%;bac
             <button class="act-btn" id="re-btn" onclick="generate()">↻ Redo</button>
           </div>
         </div>
-        <div class="out-body" id="out-body">
+        <div class="out-body">
           <div class="idle-st" id="idle">
             <div class="idle-ico">✦</div>
-            <p>Enter a prompt and hit<br/><strong style="color:var(--text)">Generate Image</strong><br/>Your image appears here.</p>
+            <p>Enter a prompt and press<br/><strong style="color:var(--text)">Generate Image</strong><br/>Your result appears here.</p>
           </div>
           <div class="load-st" id="loading">
             <div class="ring"></div>
-            <div class="load-msg" id="load-msg">Connecting to Stable Horde...</div>
+            <div class="load-msg" id="load-msg">Connecting to AI Horde...</div>
             <div class="prog-track"><div class="prog-fill" id="prog-fill"></div></div>
             <div class="queue-info" id="queue-info"></div>
           </div>
-          <img id="result-img" src="" alt="Generated" onclick="openFull()"/>
+          <img id="result-img" src="" alt="Generated image" onclick="openFull()" crossorigin="anonymous"/>
         </div>
         <div class="err-box" id="err-box"></div>
       </div>
@@ -343,372 +313,326 @@ input[type=range]::-moz-range-thumb{width:15px;height:15px;border-radius:50%;bac
 </div>
 
 <script>
-// ── State ──────────────────────────────────────────────────
-let uploadedB64 = null;
-let uploadedMime = 'image/png';
-let mode = 'img2img';
-let W = 768, H = 768;
-let currentB64 = null;
-let isRunning = false;
-let pollTimer = null;
+// ── State ───────────────────────────────────────────────────
+let uploadedB64   = null;
+let uploadedMime  = 'image/png';
+let mode          = 'img2img';
+let W = 768, H    = 768;
+let currentImgUrl = null;   // we keep the direct URL now, not b64
+let isRunning     = false;
 
-const HORDE_BASE = 'https://stablehorde.net/api/v2';
+const API = 'https://aihorde.net/api/v2';  // canonical domain (also works as stablehorde.net)
 
-// ── Init ───────────────────────────────────────────────────
+// ── Init ────────────────────────────────────────────────────
 window.addEventListener('DOMContentLoaded', () => {
   const k = localStorage.getItem('horde_key');
   if (k) document.getElementById('apikey').value = k;
 });
-
 function saveKey() {
   const v = document.getElementById('apikey').value.trim();
-  if (v) localStorage.setItem('horde_key', v);
+  localStorage.setItem('horde_key', v);
 }
 
-// ── Drag & Drop ────────────────────────────────────────────
-function onDragOver(e) { e.preventDefault(); document.getElementById('drop-zone').classList.add('over'); }
-function onDragLeave() { document.getElementById('drop-zone').classList.remove('over'); }
-function onDrop(e) {
-  e.preventDefault();
-  document.getElementById('drop-zone').classList.remove('over');
+// ── Drag & Drop ─────────────────────────────────────────────
+function onDragOver(e){ e.preventDefault(); document.getElementById('drop-zone').classList.add('over'); }
+function onDragLeave(){ document.getElementById('drop-zone').classList.remove('over'); }
+function onDrop(e){
+  e.preventDefault(); document.getElementById('drop-zone').classList.remove('over');
   const f = e.dataTransfer.files[0];
-  if (f && f.type.startsWith('image/')) loadFile(f);
+  if(f && f.type.startsWith('image/')) loadFile(f);
 }
-function onFile(e) { if (e.target.files[0]) loadFile(e.target.files[0]); }
-
-function loadFile(f) {
-  uploadedMime = f.type || 'image/png';
-  const reader = new FileReader();
-  reader.onload = ev => {
+function onFile(e){ if(e.target.files[0]) loadFile(e.target.files[0]); }
+function loadFile(f){
+  uploadedMime = f.type||'image/png';
+  const r = new FileReader();
+  r.onload = ev => {
     const url = ev.target.result;
     uploadedB64 = url.split(',')[1];
     const dz = document.getElementById('drop-zone');
-    dz.querySelectorAll('.prev-img').forEach(i => i.remove());
-    const img = document.createElement('img');
-    img.className = 'prev-img';
-    img.src = url;
+    dz.querySelectorAll('.prev-img').forEach(i=>i.remove());
+    const img = document.createElement('img'); img.className='prev-img'; img.src=url;
     dz.appendChild(img);
-    document.getElementById('dz-inner').style.display = 'none';
-    document.getElementById('clr-btn').style.display = 'flex';
+    document.getElementById('dz-inner').style.display='none';
+    document.getElementById('clr-btn').style.display='flex';
   };
-  reader.readAsDataURL(f);
+  r.readAsDataURL(f);
+}
+function clearImg(e){
+  e.stopPropagation(); uploadedB64=null;
+  document.getElementById('drop-zone').querySelectorAll('.prev-img').forEach(i=>i.remove());
+  document.getElementById('dz-inner').style.display='flex';
+  document.getElementById('clr-btn').style.display='none';
+  document.getElementById('file-input').value='';
 }
 
-function clearImg(e) {
-  e.stopPropagation();
-  uploadedB64 = null;
-  const dz = document.getElementById('drop-zone');
-  dz.querySelectorAll('.prev-img').forEach(i => i.remove());
-  document.getElementById('dz-inner').style.display = 'flex';
-  document.getElementById('clr-btn').style.display = 'none';
-  document.getElementById('file-input').value = '';
+// ── Controls ────────────────────────────────────────────────
+function setMode(btn){
+  document.querySelectorAll('.tog-btn').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on'); mode=btn.dataset.m;
+  document.getElementById('str-row').style.opacity = mode==='img2img'?'1':'0.35';
+}
+function setSize(btn){
+  document.querySelectorAll('.sz-btn').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on'); W=+btn.dataset.w; H=+btn.dataset.h;
+}
+function sv(id,v){ document.getElementById(id).textContent=v; }
+function chip(t){
+  const ta=document.getElementById('prompt');
+  ta.value=ta.value.trim()?ta.value.trim()+', '+t:t; ta.focus();
 }
 
-// ── Controls ───────────────────────────────────────────────
-function setMode(btn) {
-  document.querySelectorAll('.tog-btn').forEach(b => b.classList.remove('on'));
-  btn.classList.add('on');
-  mode = btn.dataset.m;
-  document.getElementById('str-row').style.opacity = mode === 'img2img' ? '1' : '0.35';
-}
-
-function setSize(btn) {
-  document.querySelectorAll('.sz-btn').forEach(b => b.classList.remove('on'));
-  btn.classList.add('on');
-  W = parseInt(btn.dataset.w);
-  H = parseInt(btn.dataset.h);
-}
-
-function sv(id, val) { document.getElementById(id).textContent = val; }
-
-function chip(t) {
-  const ta = document.getElementById('prompt');
-  ta.value = ta.value.trim() ? ta.value.trim() + ', ' + t : t;
-  ta.focus();
-}
-
-// ── Generate ───────────────────────────────────────────────
-async function generate() {
-  if (isRunning) return;
-  const prompt = document.getElementById('prompt').value.trim();
-  if (!prompt) { showErr('Please enter a prompt.'); return; }
-  if (mode === 'img2img' && !uploadedB64) { showErr('Upload an image or switch to Text Only mode.'); return; }
-
-  clearErr();
-  isRunning = true;
-  setBusy(true);
-
+// ── Generate ────────────────────────────────────────────────
+async function generate(){
+  if(isRunning) return;
+  const prompt=document.getElementById('prompt').value.trim();
+  if(!prompt){ showErr('Please enter a prompt.'); return; }
+  if(mode==='img2img'&&!uploadedB64){ showErr('Please upload a source image, or switch to Text Only mode.'); return; }
+  clearErr(); isRunning=true; setBusy(true);
   try {
     const jobId = await submitJob(prompt);
-    setMsg('Job submitted — polling for result...');
-    setProgress(20);
-    const b64 = await pollJob(jobId);
-    showResult(b64);
+    setMsg('Job queued — waiting for a worker...'); setProgress(15);
+    const imgUrl = await pollJob(jobId);
+    showResult(imgUrl);
   } catch(err) {
     console.error(err);
-    showErr(err.message || 'Generation failed. Please try again.');
+    showErr(err.message||'Generation failed. Please try again.');
   } finally {
-    isRunning = false;
-    setBusy(false);
+    isRunning=false; setBusy(false);
   }
 }
 
-async function submitJob(prompt) {
+async function submitJob(prompt){
   const apiKey = document.getElementById('apikey').value.trim() || '0000000000';
-  const neg = document.getElementById('neg').value.trim() || 'blurry, low quality, watermark, text, distorted';
-  const steps = parseInt(document.getElementById('steps').value);
-  const cfg = parseFloat(document.getElementById('cfg').value);
-  const strength = parseFloat(document.getElementById('strength').value);
-  const modelName = document.getElementById('model').value;
+  const neg    = document.getElementById('neg').value.trim() || 'blurry, low quality, watermark, text, deformed, ugly';
+  const steps  = parseInt(document.getElementById('steps').value);
+  const cfg    = parseFloat(document.getElementById('cfg').value);
+  const str    = parseFloat(document.getElementById('strength').value);
+  const model  = document.getElementById('model').value;
 
-  // Snap to multiples of 64 (required by Stable Diffusion)
-  const snapW = Math.round(W / 64) * 64;
-  const snapH = Math.round(H / 64) * 64;
+  // Dimensions must be multiples of 64
+  const sw = Math.round(W/64)*64;
+  const sh = Math.round(H/64)*64;
 
   const body = {
     prompt: prompt + ' ###' + neg,
     params: {
       sampler_name: 'k_euler_a',
-      steps: steps,
-      cfg_scale: cfg,
-      width: snapW,
-      height: snapH,
-      seed: String(Math.floor(Math.random() * 999999999)),
-      n: 1,
-      karras: true,
-      hires_fix: false,
-      clip_skip: 1
+      steps, cfg_scale: cfg,
+      width: sw, height: sh,
+      seed: String(Math.floor(Math.random()*999999999)),
+      n: 1, karras: true, hires_fix: false, clip_skip: 1
     },
-    models: [modelName],
+    models: [model],
     nsfw: false,
     trusted_workers: false,
     slow_workers: true,
-    r2: true,
+    r2: true,       // Horde returns a CDN URL instead of inline base64
     shared: false
   };
 
-  // Image-to-image
-  if (mode === 'img2img' && uploadedB64) {
+  if(mode==='img2img' && uploadedB64){
     body.source_image = uploadedB64;
     body.source_processing = 'img2img';
-    body.params.denoising_strength = strength;
+    body.params.denoising_strength = str;
   }
 
-  const res = await fetch(`${HORDE_BASE}/generate/async`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
+  const res = await fetch(`${API}/generate/async`, {
+    method:'POST',
+    headers:{
+      'Content-Type':'application/json',
       'apikey': apiKey,
-      'Client-Agent': 'SynthexApp:1.0:anonymous'
+      'Client-Agent':'SynthexApp:2.0:anonymous'
     },
     body: JSON.stringify(body)
   });
 
   const data = await res.json();
-
-  if (!res.ok) {
-    const msg = data.message || data.detail || `Error ${res.status}`;
-    throw new Error('Stable Horde: ' + msg);
+  if(!res.ok){
+    const msg = data.message || data.detail || ('Error ' + res.status);
+    throw new Error('AI Horde: ' + msg);
   }
-
-  if (!data.id) throw new Error('No job ID returned from Stable Horde.');
+  if(!data.id) throw new Error('No job ID returned. Try again.');
   return data.id;
 }
 
-async function pollJob(jobId) {
+async function pollJob(jobId){
   const apiKey = document.getElementById('apikey').value.trim() || '0000000000';
-  let attempts = 0;
-  const maxAttempts = 120; // 2 min max
-
   const msgs = [
     'Waiting in queue...',
-    'Workers are processing your image...',
+    'A worker picked up your job...',
     'Running diffusion steps...',
-    'Applying details...',
-    'Almost done...'
+    'Applying details and style...',
+    'Finalising your image...'
   ];
+  let attempts = 0;
 
-  while (attempts < maxAttempts) {
+  while(attempts < 150){  // up to 5 minutes
     await sleep(2000);
     attempts++;
 
-    // Check status
-    const statusRes = await fetch(`${HORDE_BASE}/generate/check/${jobId}`, {
-      headers: { 'apikey': apiKey, 'Client-Agent': 'SynthexApp:1.0:anonymous' }
+    const sr = await fetch(`${API}/generate/check/${jobId}`,{
+      headers:{'apikey':apiKey,'Client-Agent':'SynthexApp:2.0:anonymous'}
     });
-    const status = await statusRes.json();
+    const s = await sr.json();
 
-    // Update progress UI
-    const msgIdx = Math.min(Math.floor(attempts / 5), msgs.length - 1);
-    setMsg(msgs[msgIdx]);
-    const prog = Math.min(20 + (attempts / maxAttempts) * 75, 92);
-    setProgress(prog);
+    // Progress
+    setMsg(msgs[Math.min(Math.floor(attempts/8), msgs.length-1)]);
+    setProgress(Math.min(15 + (attempts/150)*80, 93));
+    const qi = document.getElementById('queue-info');
+    if(s.queue_position > 0)
+      qi.textContent = `Queue position: ${s.queue_position} · ETA ~${s.wait_time||'?'}s`;
+    else if(s.processing > 0)
+      qi.textContent = 'Processing on worker GPU...';
+    else
+      qi.textContent = '';
 
-    if (status.queue_position !== undefined) {
-      const qp = status.queue_position;
-      const eta = status.wait_time || 0;
-      if (qp > 0) {
-        document.getElementById('queue-info').textContent =
-          `Queue position: ${qp} · ETA ~${eta}s`;
-      } else {
-        document.getElementById('queue-info').textContent = 'Processing on worker...';
-      }
-    }
-
-    if (status.done) {
-      // Fetch result
-      const resultRes = await fetch(`${HORDE_BASE}/generate/status/${jobId}`, {
-        headers: { 'apikey': apiKey, 'Client-Agent': 'SynthexApp:1.0:anonymous' }
+    if(s.done){
+      const rr = await fetch(`${API}/generate/status/${jobId}`,{
+        headers:{'apikey':apiKey,'Client-Agent':'SynthexApp:2.0:anonymous'}
       });
-      const result = await resultRes.json();
-
-      if (!result.generations || result.generations.length === 0) {
-        throw new Error('No image was generated. Try a different prompt or model.');
-      }
-
+      const result = await rr.json();
+      if(!result.generations?.length) throw new Error('No image was generated. Try a different prompt or model.');
       const gen = result.generations[0];
-
-      // Result is either a URL (r2=true) or base64
-      if (gen.img && gen.img.startsWith('http')) {
-        // Fetch the image from the URL and convert to base64
-        const imgRes = await fetch(gen.img);
-        if (!imgRes.ok) throw new Error('Failed to download generated image.');
-        const blob = await imgRes.blob();
-        return await blobToB64(blob);
-      } else if (gen.img) {
-        return gen.img; // already base64
-      } else {
-        throw new Error('No image data in response.');
-      }
+      // gen.img is a URL when r2:true
+      if(!gen.img) throw new Error('Empty image in response.');
+      return gen.img;   // direct HTTPS URL — no CORS fetch needed
     }
-
-    if (status.faulted) {
-      throw new Error('Job faulted on Stable Horde. Please try again.');
-    }
+    if(s.faulted) throw new Error('Job faulted on AI Horde workers. Please try again.');
   }
-
-  throw new Error('Generation timed out after 4 minutes. The queue may be very busy — please try again.');
+  throw new Error('Timed out after 5 minutes. Queue is very busy — please try again later.');
 }
 
-// ── UI helpers ─────────────────────────────────────────────
-function setBusy(on) {
-  const btn = document.getElementById('gen-btn');
-  if (on) {
-    btn.disabled = true;
-    document.getElementById('btn-txt').textContent = 'Generating...';
-    document.getElementById('btn-ico').textContent = '◌';
+// ── UI ──────────────────────────────────────────────────────
+const loadMsgs=['Connecting to AI Horde...','Waiting in queue...','Workers are processing...','Running diffusion...','Almost there...'];
+let loadTimer;
+
+function setBusy(on){
+  const btn=document.getElementById('gen-btn');
+  if(on){
+    btn.disabled=true;
+    document.getElementById('btn-txt').textContent='Generating...';
+    document.getElementById('btn-ico').textContent='◌';
     document.getElementById('loading').classList.add('show');
-    document.getElementById('idle').style.display = 'none';
-    document.getElementById('result-img').style.display = 'none';
+    document.getElementById('idle').style.display='none';
+    document.getElementById('result-img').style.display='none';
     setProgress(5);
-    document.getElementById('queue-info').textContent = '';
+    document.getElementById('queue-info').textContent='';
   } else {
-    btn.disabled = false;
-    document.getElementById('btn-txt').textContent = 'Generate Image';
-    document.getElementById('btn-ico').textContent = '✦';
+    clearTimeout(loadTimer);
+    btn.disabled=false;
+    document.getElementById('btn-txt').textContent='Generate Image';
+    document.getElementById('btn-ico').textContent='✦';
     document.getElementById('loading').classList.remove('show');
   }
 }
+function setMsg(m){ document.getElementById('load-msg').textContent=m; }
+function setProgress(p){ document.getElementById('prog-fill').style.width=p+'%'; }
 
-function setMsg(m) { document.getElementById('load-msg').textContent = m; }
-
-function setProgress(pct) {
-  document.getElementById('prog-fill').style.width = pct + '%';
-}
-
-function showResult(b64) {
-  currentB64 = b64;
-  const img = document.getElementById('result-img');
-  const mime = b64.startsWith('/9j') ? 'image/jpeg' : 'image/png';
-  img.src = `data:${mime};base64,${b64}`;
-  img.style.display = 'block';
-  document.getElementById('idle').style.display = 'none';
+function showResult(imgUrl){
+  currentImgUrl = imgUrl;
   setProgress(100);
-  ['dl-btn','use-btn','fs-btn','re-btn'].forEach(id => document.getElementById(id).classList.add('show'));
-  addHistory(b64);
+  const img = document.getElementById('result-img');
+  img.src = imgUrl;   // set src directly — browser handles CORS for display
+  img.style.display = 'block';
+  document.getElementById('idle').style.display='none';
+  ['dl-btn','use-btn','fs-btn','re-btn'].forEach(id=>document.getElementById(id).classList.add('show'));
+  addHistory(imgUrl);
 }
 
-function showErr(msg) {
-  const box = document.getElementById('err-box');
-  box.innerHTML = '⚠ ' + msg;
-  box.classList.add('show');
+function showErr(msg){
+  const b=document.getElementById('err-box');
+  b.innerHTML='⚠ '+msg; b.classList.add('show');
 }
-function clearErr() { document.getElementById('err-box').classList.remove('show'); }
+function clearErr(){ document.getElementById('err-box').classList.remove('show'); }
 
-function dlImg() {
-  if (!currentB64) return;
-  const a = document.createElement('a');
-  const mime = currentB64.startsWith('/9j') ? 'image/jpeg' : 'image/png';
-  const ext = mime.includes('jpeg') ? 'jpg' : 'png';
-  a.href = `data:${mime};base64,${currentB64}`;
-  a.download = `synthex_${Date.now()}.${ext}`;
-  a.click();
-}
-
-function useAsInput() {
-  if (!currentB64) return;
-  uploadedB64 = currentB64;
-  uploadedMime = 'image/png';
-  const dz = document.getElementById('drop-zone');
-  dz.querySelectorAll('.prev-img').forEach(i => i.remove());
-  const img = document.createElement('img');
-  img.className = 'prev-img';
-  img.src = `data:image/png;base64,${currentB64}`;
-  dz.appendChild(img);
-  document.getElementById('dz-inner').style.display = 'none';
-  document.getElementById('clr-btn').style.display = 'flex';
-  const imgBtn = document.querySelector('[data-m="img2img"]');
-  document.querySelectorAll('.tog-btn').forEach(b => b.classList.remove('on'));
-  imgBtn.classList.add('on');
-  mode = 'img2img';
+// ── Download ─────────────────────────────────────────────────
+// Open image URL in new tab so user can right-click save
+// (direct download across origins requires canvas trick)
+function dlImg(){
+  if(!currentImgUrl) return;
+  // Try canvas approach for same-origin; fallback to new tab
+  const img = new Image();
+  img.crossOrigin='anonymous';
+  img.onload = () => {
+    try {
+      const c=document.createElement('canvas');
+      c.width=img.naturalWidth; c.height=img.naturalHeight;
+      c.getContext('2d').drawImage(img,0,0);
+      const a=document.createElement('a');
+      a.href=c.toDataURL('image/png');
+      a.download='synthex_'+Date.now()+'.png';
+      a.click();
+    } catch(e){
+      // CORS blocked canvas — open in new tab as fallback
+      window.open(currentImgUrl,'_blank');
+    }
+  };
+  img.onerror = () => window.open(currentImgUrl,'_blank');
+  img.src = currentImgUrl+'?t='+Date.now();
 }
 
-function openFull() {
-  if (!currentB64) return;
-  const mime = currentB64.startsWith('/9j') ? 'image/jpeg' : 'image/png';
-  document.getElementById('fs-img').src = `data:${mime};base64,${currentB64}`;
+function useAsInput(){
+  if(!currentImgUrl) return;
+  // Load URL into a canvas to get base64 for upload
+  const img=new Image(); img.crossOrigin='anonymous';
+  img.onload=()=>{
+    const c=document.createElement('canvas');
+    c.width=img.naturalWidth; c.height=img.naturalHeight;
+    c.getContext('2d').drawImage(img,0,0);
+    try {
+      const dataUrl=c.toDataURL('image/png');
+      uploadedB64=dataUrl.split(',')[1]; uploadedMime='image/png';
+      const dz=document.getElementById('drop-zone');
+      dz.querySelectorAll('.prev-img').forEach(i=>i.remove());
+      const pi=document.createElement('img'); pi.className='prev-img'; pi.src=dataUrl;
+      dz.appendChild(pi);
+      document.getElementById('dz-inner').style.display='none';
+      document.getElementById('clr-btn').style.display='flex';
+      document.querySelectorAll('.tog-btn').forEach(b=>b.classList.remove('on'));
+      const imgBtn=document.querySelector('[data-m="img2img"]');
+      imgBtn.classList.add('on'); mode='img2img';
+      document.getElementById('str-row').style.opacity='1';
+    } catch(e){
+      alert('Could not load image as input due to CORS. Try downloading and re-uploading it.');
+    }
+  };
+  img.onerror=()=>alert('Could not load image as input. Try downloading and re-uploading it.');
+  img.src=currentImgUrl+'?t='+Date.now();
+}
+
+function openFull(){
+  if(!currentImgUrl) return;
+  document.getElementById('fs-img').src=currentImgUrl;
   document.getElementById('fs-ov').classList.add('show');
 }
-function closeFull() { document.getElementById('fs-ov').classList.remove('show'); }
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeFull(); });
-document.getElementById('fs-ov').addEventListener('click', e => { if (e.target === document.getElementById('fs-ov')) closeFull(); });
+function closeFull(){ document.getElementById('fs-ov').classList.remove('show'); }
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeFull(); });
+document.getElementById('fs-ov').addEventListener('click',e=>{ if(e.target===document.getElementById('fs-ov')) closeFull(); });
 
-// ── History ────────────────────────────────────────────────
-function addHistory(b64) {
-  document.getElementById('gal-wrap').style.display = 'block';
-  const grid = document.getElementById('gal-grid');
-  const mime = b64.startsWith('/9j') ? 'image/jpeg' : 'image/png';
-  const item = document.createElement('div');
-  item.className = 'g-item';
-  item.innerHTML = `
-    <img src="data:${mime};base64,${b64}" alt=""/>
+// ── Gallery ──────────────────────────────────────────────────
+function addHistory(imgUrl){
+  document.getElementById('gal-wrap').style.display='block';
+  const grid=document.getElementById('gal-grid');
+  const item=document.createElement('div'); item.className='g-item';
+  item.innerHTML=`
+    <img src="${imgUrl}" alt=""/>
     <div class="g-ov">
       <button class="g-btn v">View</button>
-      <button class="g-btn u">Use</button>
+      <button class="g-btn dl">Save</button>
     </div>`;
-  item.querySelector('.v').addEventListener('click', e => {
+  item.querySelector('.v').addEventListener('click',e=>{
     e.stopPropagation();
-    document.getElementById('fs-img').src = `data:${mime};base64,${b64}`;
+    document.getElementById('fs-img').src=imgUrl;
     document.getElementById('fs-ov').classList.add('show');
   });
-  item.querySelector('.u').addEventListener('click', e => {
+  item.querySelector('.dl').addEventListener('click',e=>{
     e.stopPropagation();
-    currentB64 = b64;
-    useAsInput();
+    currentImgUrl=imgUrl; dlImg();
   });
   grid.prepend(item);
 }
 
-// ── Utils ──────────────────────────────────────────────────
-function blobToB64(blob) {
-  return new Promise((res, rej) => {
-    const r = new FileReader();
-    r.onload = () => res(r.result.split(',')[1]);
-    r.onerror = rej;
-    r.readAsDataURL(blob);
-  });
-}
-function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+function sleep(ms){ return new Promise(r=>setTimeout(r,ms)); }
 </script>
 </body>
 </html>
